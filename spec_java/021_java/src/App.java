@@ -6,16 +6,26 @@ public class App {
         p.name = "Robbie";
         p.surname = "Russian";
 
-        // creazione di un oggetto di tipo Person
+        // creazione di un oggetto di tipo Per
         Person laraC = new Person();
         //assegnazione dei valori degli attributi name e surname dell'oggetto laraC
         laraC.name = "Lara";
         laraC.surname = "Croft";
 
+        /*  
+        *   creazione di un oggetto attreverso il costruttore
+        *   con due parametri di tipo stringa
+        *   name e surname
+        */
+        Person robbieR = new Person("Robbie", "Russo");
+        robbieR.info();
+        laraC.info();
+        Person aleL = new Person("Leo", 35);
+        aleL.info();
         // chiamata al metodo info() passando l'oggetto p come argomento della funzione
-        info(p);
+        // info(p);
         // chiamata al metodo info() passando l'oggetto laraC come argomento della funzione
-        info(laraC);
+        // info(laraC);
     }
     //definizione del metodo info() che riceveun oggetto di tipo Person come parametro
     // public static void info(Person person){
