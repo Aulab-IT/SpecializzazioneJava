@@ -1,12 +1,7 @@
 class App{
     public static void main(String[] args) {
-
-        String name = "Robbie";
-        String surname = "Russian";
-        info(name, surname);
-        info("Ale", "Leo");
-    }
-    public static void info(String name, String surname){
-        System.out.println("Ciao inizio dell' OOP, io sono" + name + " " + surname);
+        Pointer3D p1 = new Pointer3D(100,200,300);
+        Pointer3D p2 = p1;
+        System.out.println(p1.equals( p2 ));
     }
 }
