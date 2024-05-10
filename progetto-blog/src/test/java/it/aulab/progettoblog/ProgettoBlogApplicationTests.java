@@ -27,25 +27,6 @@ class ProgettoBlogApplicationTests {
 
 
         authorRepository.save(a1);
-
-        // Actor a2 = new Actor();
-        // a2.setFirstname("Orlando");
-        // a2.setLastname("Bloom");
-
-
-        // actorRepo.save(a2);
-
-
-        // Film f = new Film();
-        // f.setTitle("Pirati dei Caraibi: La maledizione della prima luna");
-        // f.setCategory("Fantasy");
-        // List<Actor> actors = f.getActors();
-       
-        // actors.add(a1);
-        // actors.add(a2);
-
-
-        // filmRepo.save(f);
     }
 
 	// @Test
