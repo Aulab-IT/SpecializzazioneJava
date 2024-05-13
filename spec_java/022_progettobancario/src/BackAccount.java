@@ -1,7 +1,7 @@
 public class BackAccount {
     public String name;
     public String code;
-    public int balance; // saldo
+    private int balance; // saldo
 
     //costruttore    
     public BackAccount(String name, String code, int balance) {
@@ -12,4 +12,5 @@ public class BackAccount {
     //!Creiamo anche due metodi versamento e prelievo
     public void versamento( int cifra ){ this.balance += cifra; }
     public void prelievo( int cifra ){ this.balance -= cifra; }
+    public void printBalance(){System.out.println("il saldo del conto è: " + this.balance);}
 }
