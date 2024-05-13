@@ -7,6 +7,5 @@ public class App {
        // richiamo del metodo displayinfo() sui due oggetti
        robbie.displayInfo();
        valerio.displayInfo();
-
     }
 }
