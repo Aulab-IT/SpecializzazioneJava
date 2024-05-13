@@ -17,7 +17,7 @@ public class Teacher extends Employee {
     }
 
     public void getSalary(){
-        System.out.println("il suo compenso lordo annuo è:" + salary);
+        System.out.println("il suo compenso lordo annuo è:" + salary + "€");
     }
 
 }
