@@ -1,21 +1,21 @@
 public class Employee extends Person{
     //attributi
-    int salary;
+    String role;
 
     //costruttore
-    public Employee(String name, String surname, int age, int salary) {
+    public Employee(String name, String surname, int age, String role) {
         super(name, surname, age);
-        this.salary = salary;
+        this.role = role;
     }
 
 
     @Override
     public void displayInfo() {
-        System.out.println("Employee Details: \n Name: " + name + "\n Surname:" + surname );
+        System.out.println("Employee Details:");
         System.out.println("Name: " + name);
         System.out.println("Surname: " + surname);
-        // System.out.println("Age: " + age);
-        // System.out.println("Salary: " + salary);
+        System.out.println("Age: " + age);
+        System.out.println("Mansione: " + role);
     }
 
 }
