@@ -3,10 +3,11 @@ package it.aulab.progettoblog.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.ListCrudRepository;
+
 import it.aulab.progettoblog.models.Author;
 
-public interface AuthorRepository extends CrudRepository<Author, Long>{
+public interface AuthorRepository extends ListCrudRepository<Author, Long>{
     List<Author> findByName(String firstname);
 
     List<Author> findBySurname(String lastname);
