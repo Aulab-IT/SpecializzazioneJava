@@ -1,0 +1,36 @@
+@startuml diagram
+
+abstract class Person {
+    - name: String
+    - surname: String
+    - age: int
+    + displayInfo(): void
+}
+
+class Employee extends Person {
+    - role: String
+    + displayInfo(): void
+}
+
+class Student extends Person {
+    - role: String
+    + displayInfo(): void
+}
+
+class Teacher extends Employee {
+    - subject: String
+    - salary: int
+    + displayInfo(): void
+    + teach(): void
+    + getSalary(): void
+}
+
+class Freelancer extends Employee {
+    - project: String
+    - commission: int
+    + displayInfo(): void
+    + workOnProject(): void
+    + getCommission(): void
+}
+
+@enduml

@@ -1,7 +1,6 @@
 public class Employee extends Person{
     //attributi
     String role;
-
     //costruttore
     public Employee(String name, String surname, int age, String role) {
         super(name, surname, age);
