@@ -1,9 +1,9 @@
 package it.aulab.progettoblog.repositories;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.ListCrudRepository;
 
 import it.aulab.progettoblog.models.Comment;
 
-public interface CommentRepository extends CrudRepository<Comment, Long>{
+public interface CommentRepository extends ListCrudRepository<Comment, Long>{
    
 }
 

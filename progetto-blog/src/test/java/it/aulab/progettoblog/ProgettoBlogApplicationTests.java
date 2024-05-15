@@ -29,9 +29,9 @@ class ProgettoBlogApplicationTests {
         authorRepository.save(a1);
     }
 
-	// @Test
-	// void contextLoads() {
-	// }
+	@Test
+	void contextLoads() {
+	}
 
 	@Test
     void findByName(){

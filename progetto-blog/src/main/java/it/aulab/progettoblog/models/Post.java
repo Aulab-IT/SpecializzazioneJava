@@ -1,8 +1,9 @@
 package it.aulab.progettoblog.models;
 
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,6 +33,7 @@ public class Post {
     private Author author;
 
     @OneToMany(mappedBy = "post")
+    @JsonIgnoreProperties({"post"})
     private List<Comment> comments = new ArrayList<Comment>();
 
     public List<Comment> getComments() {
