@@ -11,6 +11,8 @@ public interface AuthorRepository extends ListCrudRepository<Author, Long>{
     List<Author> findByName(String firstname);
 
     List<Author> findBySurname(String lastname);
+
+    List<Author> findByEmail(String email);
    
     List<Author> findByNameAndSurname(String firstname, String lastname);
 
