@@ -12,8 +12,8 @@ import it.aulab.progettoblog.models.Comment;
 import it.aulab.progettoblog.repositories.CommentRepository;
 
 @Controller
-@RequestMapping("/comments")
-public class CommentController {
+@RequestMapping("/api/comments")
+public class CommentRestController {
     @Autowired
     CommentRepository commentRepository;
 

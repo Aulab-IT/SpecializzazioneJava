@@ -12,8 +12,8 @@ import it.aulab.progettoblog.models.Post;
 import it.aulab.progettoblog.repositories.PostRepository;
 
 @Controller
-@RequestMapping("/posts")
-public class PostController {
+@RequestMapping("/api/posts")
+public class PostRestController {
     @Autowired
     PostRepository postRepository;
 

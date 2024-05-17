@@ -18,8 +18,8 @@ import it.aulab.progettoblog.repositories.AuthorRepository;
 import it.aulab.progettoblog.services.AuthorService;
 
 @RestController
-@RequestMapping("/authors")
-public class AuthorController {
+@RequestMapping("/api/authors")
+public class AuthorRestController {
     @Autowired
     AuthorRepository authorRepository;
 
