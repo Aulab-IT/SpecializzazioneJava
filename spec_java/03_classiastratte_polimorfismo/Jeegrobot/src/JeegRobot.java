@@ -22,6 +22,10 @@ public class JeegRobot {
         this.legDX.defence();
     }
 
+    public void difesaGambaSinistra(){
+        this.legSx.defence();
+    }
+
     public void salto(){
         this.legSx.jumpForward();
     }
