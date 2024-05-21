@@ -27,6 +27,6 @@ public class Preist extends WizardCharacter implements Spell{
     @Override
     public void castHealingTouch() {
         System.out.println(name + "Asclepio curami!!!");
-        // Implement healing touch effect (e.g., restore health to allies)
+        
     }
 }
