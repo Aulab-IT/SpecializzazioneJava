@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import it.aulab.progettoblog.dtos.AuthorDto;
 import it.aulab.progettoblog.models.Author;
 import it.aulab.progettoblog.models.Post;
 import it.aulab.progettoblog.services.AuthorService;
@@ -44,14 +45,14 @@ public class AuhtorController {
     @GetMapping("remove/{id}")
     public String removeAuthor(@PathVariable("id") Long id) {
        
-        Author author = authorService.read(id);
+        AuthorDto author = authorService.read(id);
 
-        if (author.getPosts() != null && !author.getPosts().isEmpty()) {
-            Iterable<Post> posts = author.getPosts();
-            for (Post post: posts) {
-                post.setAuthor(null);
-            }
-        }
+        // if (author.getNumberOfPosts() != null && !author.getNumberOfPosts().isEmpty()) {
+        //     Iterable<Post> posts = author.getNumberOfPosts();
+        //     for (Post post: posts) {
+        //         post.setAuthor(null);
+        //     }
+        // }
         authorService.delete(id);
         return "redirect:/authors";
     }

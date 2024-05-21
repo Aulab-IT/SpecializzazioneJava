@@ -28,8 +28,9 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Name</th>
-                            <th>Surname</th>
+                            <!-- <th>Name</th>
+                            <th>Surname</th> -->
+                            <th>Fullname</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
@@ -37,8 +38,9 @@
                     <tbody>
                         <tr th:each="author:${authors}">
                           <td th:text="${author.id}"></td>
-                          <td th:text="${author.name}"></td>
-                          <td th:text="${author.surname}"></td>
+                          <!-- <td th:text="${author.name}"></td>
+                          <td th:text="${author.surname}"></td> -->
+                          <td th:text="${author.fullname}"></td>
                           <td th:text="${author.email}"></td>
                           <td>
                             <!--link cancella-->

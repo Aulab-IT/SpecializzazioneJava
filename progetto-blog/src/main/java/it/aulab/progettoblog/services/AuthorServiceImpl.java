@@ -1,13 +1,16 @@
 package it.aulab.progettoblog.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import it.aulab.progettoblog.dtos.AuthorDto;
 import it.aulab.progettoblog.models.Author;
 import it.aulab.progettoblog.models.Post;
 import it.aulab.progettoblog.repositories.AuthorRepository;
@@ -18,49 +21,67 @@ public class AuthorServiceImpl implements AuthorService{
     @Autowired
     private AuthorRepository authorRepository;
 
+    @Autowired
+    private ModelMapper mapper;
+
     @Override
-    public List<Author> readAll() {
-        return authorRepository.findAll();
+    public List<AuthorDto> readAll() {
+        List<AuthorDto> dtos = new ArrayList<AuthorDto>();
+            for(Author author: authorRepository.findAll()){
+            dtos.add(mapper.map(author, AuthorDto.class));
+            }
+            return dtos;
     }
 
     @Override
-    public Author read(Long id) {
+    public AuthorDto read(Long id) {
         Optional<Author> optAuthor = authorRepository.findById(id);
         if (optAuthor.isPresent()) {
-            return optAuthor.get();
+            return mapper.map(optAuthor.get(), AuthorDto.class);
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author id=" + id + " not found");
         }
     }
 
     @Override
-    public List<Author> read(String email) {
+    public List<AuthorDto> read(String email) {
         if(email == null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        return authorRepository.findByEmail(email);
+        List<AuthorDto> dtos = new ArrayList<AuthorDto>();
+        for(Author author: authorRepository.findByEmail(email)){
+            dtos.add(mapper.map(author, AuthorDto.class));
+        }
+        return dtos ;
     }
 
     @Override
-    public List<Author> read(String firstname, String lastname) {
-        if (firstname == null || lastname == null) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        return authorRepository.findByNameAndSurname(firstname, lastname);  
+    public List<AuthorDto> read(String firstname, String lastname) {
+        if (firstname == null || lastname == null)
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        //   return authorRepository.findByFirstnameAndLastname(firstname, lastname);
+        List<AuthorDto> dtos = new ArrayList<AuthorDto>();
+        for(Author author: authorRepository.findByNameAndSurname(firstname, lastname)){
+            dtos.add(mapper.map(author, AuthorDto.class));
+        }
+        return dtos ;
     }
 
     @Override
-    public Author create(Author author) {
+    public AuthorDto create(Author author) {
         // Validation
         if (author.getEmail() == null)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        return authorRepository.save(author);
+            return mapper.map(authorRepository.save(author), AuthorDto.class);
     }
 
     @Override
-    public Author update(Long id, Author author) {
+    public AuthorDto update(Long id, Author author) {
         if (authorRepository.existsById(id)) {
             author.setId(id);
-            return authorRepository.save(author);
+            return mapper.map(authorRepository.save(author), AuthorDto.class) ;
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
+
     }
 
     @Override

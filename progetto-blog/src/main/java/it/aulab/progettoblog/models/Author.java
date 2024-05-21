@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "authors")
@@ -66,6 +67,11 @@ public class Author {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    @Transient
+    public String getFullname() {
+        return name +" "+surname;
     }
 
 }
