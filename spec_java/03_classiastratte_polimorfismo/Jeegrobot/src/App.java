@@ -2,7 +2,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("O chiamavano Jig Robbò");
         System.out.println("Miwa!! Lanciami i componenti!!!!");
-        //! creazione degli oggetti componenti
+        //! creazione degli oggetti componenti in UPcasting
         Arm aSx = new Drill("Trivella Sinistra"); 
         Arm aDx = new Fist("Pugno Destro");
         Leg lSx = new Flare();
@@ -23,3 +23,4 @@ public class App {
         jeeg2.difesaGambaSinistra();
     }
 }
+
