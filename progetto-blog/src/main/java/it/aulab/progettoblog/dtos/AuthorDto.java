@@ -5,7 +5,7 @@ public class AuthorDto {
     private String name;
     private String surname;
     private String email;
-    private String fullname;
+    public String fullname;
 
     private Integer numberOfPosts;
 
