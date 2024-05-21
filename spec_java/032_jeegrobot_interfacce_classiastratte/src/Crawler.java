@@ -1,9 +1,10 @@
-import abstract_class.Leg;
+import abstract_class.LowerBody;
 import interface_files.Move;
-public class Crawler extends Leg implements Move{
+public class Crawler extends LowerBody implements Move{
     protected String name;
     
-    public Crawler(String name) {
+    public Crawler(String name, String lower_body_side) {
+        super(lower_body_side);
         this.name = name;
     }
 

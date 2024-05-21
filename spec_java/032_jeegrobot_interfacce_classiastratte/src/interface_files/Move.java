@@ -1,6 +1,6 @@
 package interface_files;
 public interface Move {
-    void forward();
+   public void forward();
     void back();
     void left();
     void right();
