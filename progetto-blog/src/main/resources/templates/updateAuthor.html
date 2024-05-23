@@ -8,6 +8,12 @@
         <title th:text="${title}">Title</title>
     </head>
 <body>
+    <form th:action="@{/logout}" method="post" class="ml-auto">
+        <button type="submit" class="btn btn-danger">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            logout
+        </button>
+    </form>
     <div class="container">
         <div class="row">
             <div class="col-12 my-5 d-flex justify-content-center align-items-center">
