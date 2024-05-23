@@ -15,6 +15,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final static String cspDirectives = "default-src 'self' ; img-src 'self'; script-src 'self' cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' cdn.jsdelivr.net cdnjs.cloudflare.com ; font-src cdnjs.cloudflare.com";
+
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
@@ -40,8 +43,10 @@ public class SecurityConfig {
                                     .permitAll())
                         .logout((logout) -> logout.logoutUrl("/logout")
                                     .logoutSuccessUrl("/").permitAll())
-                        .csrf((csrf) -> csrf.ignoringRequestMatchers("/api/**"));
-        
+                        .csrf((csrf) -> csrf.ignoringRequestMatchers("/api/**"))
+                        .headers(
+                            (headers) -> headers.xssProtection(Customizer.withDefaults())
+                                                .contentSecurityPolicy((csp) -> csp.policyDirectives(cspDirectives)));        
         return http.build();
     }
 
