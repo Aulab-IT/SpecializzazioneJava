@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{index :: head}"></head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 my-5 d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-center align-items-center flex-grow-1">
+                    <h1 th:text="${title}">Update Comment</h1>
+                </div>
+                <form th:replace="~{index :: logout}"></form>
+            </div>
+
+            <div class="col-12 my-5">
+                <form th:action="@{/comments/{id}(id=${comment.id})}" th:object="${comment}" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Your Email</label>
+                        <input id="email" type="email" class="form-control" th:field="*{email}"
+                            placeholder="mario.rossi@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="body" class="form-label">Body</label>
+                        <textarea id="body" type="text" class="form-control" th:field="*{body}" placeholder="..."
+                            required rows="20" cols="50"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Publish date (8 chars)</label>
+                        <input id="date" type="text" class="form-control" th:field="*{date}"
+                            placeholder="yyyyMMdd">
+                    </div>
+                    <div class="mb-3">
+                        <label for="post" class="form-label">Post</label>
+                        <select id="post" th:field="*{post.id}" class="form-select">
+                            <option th:each="post:${posts}" th:value="${post.id}"
+                                th:text="${post.title}"></option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script th:replace="~{index :: bootstrapScript}"></script>
+</body>
+
+</html>
