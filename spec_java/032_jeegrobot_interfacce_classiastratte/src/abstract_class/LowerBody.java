@@ -1,5 +1,4 @@
 package abstract_class;
-
 public abstract class LowerBody {
     public String lower_body_side;
     
