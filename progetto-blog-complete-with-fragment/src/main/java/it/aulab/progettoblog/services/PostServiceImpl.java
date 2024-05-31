@@ -16,6 +16,7 @@ import it.aulab.progettoblog.models.Post;
 import it.aulab.progettoblog.repositories.AuthorRepository;
 import it.aulab.progettoblog.repositories.CommentRepository;
 import it.aulab.progettoblog.repositories.PostRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PostServiceImpl implements PostService{
