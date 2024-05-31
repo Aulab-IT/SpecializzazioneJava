@@ -44,15 +44,6 @@ public class AuhtorController {
 
     @GetMapping("remove/{id}")
     public String removeAuthor(@PathVariable("id") Long id) {
-       
-        AuthorDto author = authorService.read(id);
-
-        // if (author.getNumberOfPosts() != null && !author.getNumberOfPosts().isEmpty()) {
-        //     Iterable<Post> posts = author.getNumberOfPosts();
-        //     for (Post post: posts) {
-        //         post.setAuthor(null);
-        //     }
-        // }
         authorService.delete(id);
         return "redirect:/authors";
     }

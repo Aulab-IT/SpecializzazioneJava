@@ -44,7 +44,8 @@
                             <td th:text="${post.title}"></td>
                             <td th:if="${post.publishDate != null}" th:text="${post.publishDate}"></td>
                             <td th:if="${post.publishDate == null}">Nessuna data presente</td>
-                            <td th:text="${post.author.fullname}"></td>
+                            <td th:if="${post.author != null}" th:text="${post.author.fullname}"></td>
+                            <td th:if="${post.author == null}">No author</td>
                             <td th:text="${post.numberOfComments}"></td>
                             <td>
                                 <a th:href="@{/posts/remove/{id}(id=${post.id})}" class="btn btn-danger m-2">

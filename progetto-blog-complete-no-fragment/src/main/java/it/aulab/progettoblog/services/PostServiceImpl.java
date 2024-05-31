@@ -14,13 +14,18 @@ import it.aulab.progettoblog.dtos.PostDto;
 import it.aulab.progettoblog.models.Author;
 import it.aulab.progettoblog.models.Post;
 import it.aulab.progettoblog.repositories.AuthorRepository;
+import it.aulab.progettoblog.repositories.CommentRepository;
 import it.aulab.progettoblog.repositories.PostRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PostServiceImpl implements PostService{
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Autowired
     private AuthorRepository authorRepository;
@@ -75,9 +80,10 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
+    @Transactional
     public void delete(Long id) {
         if (postRepository.existsById(id)) {
-            //commentRepository.deleteByPostId(id);
+            commentRepository.deleteByPostId(id);
             postRepository.deleteById(id);
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Post not found");
