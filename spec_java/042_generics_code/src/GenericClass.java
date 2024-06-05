@@ -1,9 +1,9 @@
-public class GenericClass {
-    private String data;
-    public GenericClass(String data){
+public class GenericClass<T> {
+    private T data;
+    public GenericClass(T data){
         this.data = data;
     }
-    public String getData() {
+    public T getData() {
         return this.data;
     }
 }
