@@ -1,0 +1,1 @@
+insert into categories (name) values ('abbigliamento'), ('elettronica'), ('food&drink') , ('giocattoli'), ('libri'), ('giardinaggio'), ('auto'), ('moto');
